@@ -24,3 +24,5 @@ RUN git clone https://github.com/BigBrainAFK/tinfoil_gdrive_generator.git
 
 #Start the application
 WORKDIR /app/tinfoil_gdrive_generator
+COPY ./credentials.json /app/tinfoil_gdrive_generator
+COPY ./gdrive.token /app/tinfoil_gdrive_generator

@@ -1,6 +1,5 @@
 LICENSE
 .git
-.dockerignore
 credentials.json
-*.token
+gdrive.token
 *.tfl
