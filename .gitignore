@@ -1,5 +1,6 @@
+LICENSE
 .git
 .dockerignore
-LICENSE
+credentials.json
 *.token
 *.tfl
