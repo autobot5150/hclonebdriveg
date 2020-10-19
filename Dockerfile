@@ -1,11 +1,8 @@
-FROM debian:latest
+FROM alpine:latest
 WORKDIR /app
 
-# Update apt and install system utils
-RUN apt-get update && apt-get install -y curl git && apt-get autoremove && apt-get clean
-
-# Install NodeJS
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash && apt-get install -y nodejs && apt-get autoremove && apt-get clean
+#Install required software
+RUN apk add nodejs npm git rclone
 
 #java script modules for the target application
 RUN npm i googleapis moment node-fetch cli-progress
