@@ -15,3 +15,6 @@ RUN apt install -y yarn
 
 #install tinfoil_gdrive_generator
 RUN git clone https://github.com/BigBrainAFK/tinfoil_gdrive_generator.git
+
+#install git
+RUN apt-get install -y git
