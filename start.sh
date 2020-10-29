@@ -59,3 +59,7 @@ DDEBUG="-DEBUG"
 else
 DDEBUG=
 fi
+
+cp /app/config/creds/* /app/tinfoil_gdrive_generator 
+cd /app/tinfoil_gdrive_generator/
+node index.js -source $SHARED_DRIVE_ID $FOLDER_ID $AAUTO
