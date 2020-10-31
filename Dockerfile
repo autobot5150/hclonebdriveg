@@ -6,7 +6,7 @@ ENV AUTH=FALSE \
     UPLOAD=FALSE \
     UPLOADDRIVE=FALSE \
     OLDFORMAT=FALSE \
-    MAKETFL=FALSE \
+    MAKETFL=TRUE \
     KEEPMISSINGID=FALSE \
     DEBUG=FALSE \
     SHARED_DRIVE_ID="" \
@@ -23,4 +23,4 @@ RUN chmod +x /app/start.sh \
 
 VOLUME /app/config
 
-#ENTRYPOINT [ "/bin/sh", "/app/start.sh" ]
+ENTRYPOINT [ "/bin/sh", "/app/start.sh" ]

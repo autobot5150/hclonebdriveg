@@ -4,62 +4,11 @@
 #   with the user supplied enviroment variables         #
 #########################################################
 
-if [ $AUTH = "YES" ]
-then
-AAUTH="-AUTH"
-else
-AAUTH=
-fi
+#Copy credentials from host volume to working directory
+cp /app/config/creds/* /app/tinfoil_gdrive_generator
 
-if [ $AUTO = "YES" ]
-then
-AAUTO="-AUTO"
-else
-AAUTO=
-fi
+#Execute index script
+cd /app/tinfoil_gdrive_generator/ && node index.js -source $SHARED_DRIVE_ID $FOLDER_ID -auto -makeTfl -upload n -uploadDrive n
 
-if [ $UPLOAD = "YES" ]
-then
-UUPLOAD="-UPLOAD"
-else
-UUPLOAD=
-fi
-
-if [ $UPLOADDRIVE = "YES" ]
-then
-UUPLOADDRIVE="-UPLOADDRIVE"
-else
-UUPLOADDRIVE=
-fi
-
-if [ $OLDFORMAT = "YES" ]
-then
-OOLDFORMAT="-OLDFORMAT"
-else
-OOLDFORMAT=
-fi
-
-if [ $MAKETFL = "YES" ]
-then
-MMAKETFL="-MAKETFL"
-else
-MMAKETFL=
-fi
-
-if [ $KEEPMISSINGID = "YES" ]
-then
-KKEEPMISSINGID="-KEEPMISSINGID"
-else
-KKEEPMISSINGID=
-fi
-
-if [ $DEBUG = "YES" ]
-then
-DDEBUG="-DEBUG"
-else
-DDEBUG=
-fi
-
-cp /app/config/creds/* /app/tinfoil_gdrive_generator 
-cd /app/tinfoil_gdrive_generator/
-node index.js -source $SHARED_DRIVE_ID $FOLDER_ID $AAUTO
+#Move script output to the host volume
+mv /app/tinfoil_gdrive_generator/shop /app/config/shop && mv /app/tinfoil_gdrive_generator/output /app/config/output
